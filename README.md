@@ -1,4 +1,4 @@
-# Robert Elias                                                                                    # Front-end for Block Club Calender
+# Robert Elias                                                                              # Front-end for Block Club Calender
 
 ## Day 1
 - [ ] Use React and front end styling platforms such as Material UI, Reactstrap, or something like Styled-Components chosen and implemented as your technology choice (to be done and listed during your additions to the Product Canvas)
