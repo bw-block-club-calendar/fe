@@ -1,53 +1,68 @@
-# Robert Elias                                                                              # Front-end for Block Club Calender
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Day 1
-- [ ] Use React and front end styling platforms such as Material UI, Reactstrap, or something like Styled-Components chosen and implemented as your technology choice (to be done and listed during your additions to the Product Canvas)
-- [ ] Front end is pulling in some data from backend
-- [ ] User Login/Signup Pages built and ready to handle the token being sent between backend and front end
-- [ ] React app and Backend App talking to one another, focus on CORS issues
+## Available Scripts
 
-## Day 2
+In the project directory, you can run:
 
-- [ ] 80% of Front end features & UI Components, built and consuming data from the backend (Functionality over form for now)
+### `yarn start`
 
-## Day 3
+Runs the app in the development mode.<br />
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-- [ ] 100% of Front end features & UI Components, built and consuming data from the backend (Now is the time to focus on Form).
-- [ ] Front end is pulling in all data necessary from backend, users can interact with ALL CRUD operations on the Project data.
+The page will reload if you make edits.<br />
+You will also see any lint errors in the console.
 
-## Day 4
-- [ ] Document your projects within the Readme files in their Github repositories. Without having to talk to you specifically, any developer should be able to install, contribute to, and run your project based on the descriptions found in your readme
+### `yarn test`
 
-# MVP
+Launches the test runner in the interactive watch mode.<br />
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-## React I
-- [ ] Student created functional components and used events in application to add dynamic functionality to app.
-- [ ] Student's code was organized at the component level, proper usage of state and props are demonstrated throughout the project, the UI is composed of small reusable components, proper usage of useState and useEffect hooks are clearly incorporated and correctly implemented.  Student used Array methods to dynamically render HTML elements.
-- [ ] Student implemented GET requests using either Axios or Fetch to display 3rd party data on a deployed page. Route management properly installed and used to show top level pages as well as nested views where necessary.
-- [ ] Student has set up component management for the forms in the app that makes sense for each form. Student made the decision to use a third-party library, like Formik, or not, and can defend their decision. Some form validation is in place.
-- [ ] Student's work demonstrates that all MVP features were built and the student went above and beyond the project.
-- [ ] Pair programmed with the Web UI and Back end Architect
+### `yarn build`
 
-### Stretch
-- [ ] Student incorperated a third party event/animation library like unto Greensock, Anime, React-motion etc.
-- [ ] Student was able to architect components to be easily reused. Student used advanced React techniques like the composition pattern, custom hooks, render props, HOCs, etc.
-- [ ] Not only are standard network request techniques employed, the code is organized in such a fashion that the student demonstrated proper use of container vs presentational components or other industry standards, conventions or patterns.
-- [ ] Student showed great insight in setting up the state management for the app's forms. Form validation is in place for all fields, and covers all use cases. Loading states and success/error notifications are in place and add to the overall UX of the app.
-- [ ] Student's work demonstrates that all MVP features were built and the student went above and beyond the project.
-- [ ] Pair programmed with the Web UI and Back end Architect
+Builds the app for production to the `build` folder.<br />
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
-## React II 
-- [ ] React application is deployed and the static landing page is correctly incorporated with the app.
-- [ ] CRUD operations drive the application. Each participating student individually created pages that complete all CRUD operations. Token authentication is handled correctly.
-- [ ] Student has implemented a state management system that makes sense for the project. It is organized well and implemented correctly. State is not lost as user goes through the application. 
-- [ ] Student's work demonstrates that all MVP features were built
-- [ ] Team member was collaborative, able to work in a team environment
+The build is minified and the filenames include the hashes.<br />
+Your app is ready to be deployed!
 
-### Stretch
-- [ ] App is deployed, and continuous deployment is set up in a manner that is conducive to a team project environment. Project is organized well on GitHub. Extra considerations were made to help all team members understand how to contribute easily to the project, no matter their role.
-- [ ] Pages making HTTP requests do so in a logical manner that is cohesive with the app's state management system. Student showed great care and insight when handling token authentication. Student used a modular system for all requests (e.g. like a  useFetch custom hook).
-- [ ] Student showed the ability to manage state in a very coherent system at all levels of the app - global state management, component tree state management, and individual component management. The system is easy to understand and use. Student may have also architected it in such a way that it is reusable for a lot of the state management needs of the app.
-- [ ] Student's work demonstrates that all MVP features were built and the student went above and beyond the project.
-- [ ] Pair programmed with the Web UI and Back end Architect
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
+### `yarn eject`
 
+**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+
+If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+
+Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+
+You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+
+## Learn More
+
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+
+To learn React, check out the [React documentation](https://reactjs.org/).
+
+### Code Splitting
+
+This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+
+### Analyzing the Bundle Size
+
+This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+
+### Making a Progressive Web App
+
+This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+
+### Advanced Configuration
+
+This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+
+### Deployment
+
+This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+
+### `yarn build` fails to minify
+
+This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
