@@ -2,7 +2,7 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import '../../App.css';
 
-const Navigation = () => {
+const Nav = () => {
     const handleLogout = () => {
         localStorage.removeItem("token")
         window.location.reload();
@@ -14,18 +14,20 @@ const Navigation = () => {
         <img src="" alt="logo"/>
         {localStorage.getItem("token") ? (
             <nav className="navbar">
-                <Link to="/">Home</Link>
-                <Link to="/profile">Your Events</Link>
-                <Link to="/addevent">Add An Event</Link>
-                <button onClick={handleLogout}>Logout</button>
+               <button><Link to="/">Home</Link></button>
+               <button><Link to="/profile">Your Events</Link></button>
+               <button><Link to="/addevent">Add An Event</Link></button>
+                <button onClick={handleLogout}> <Link to="/">Logout</Link></button>
             </nav>
         ) : (
             <nav className="navbar">
-                <Link to="/">Home</Link>
-                <Link to="/login">Login</Link>
-                <Link to="/Events">Events</Link>
+                <button><Link to="/">Home</Link></button>
+                <button><Link to="/login">Login</Link></button>
+                <button> <Link to="/Events">Events</Link></button>
             </nav>
         )}
         </div>
     )
 }
+
+export default Nav
