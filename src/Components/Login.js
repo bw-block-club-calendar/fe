@@ -11,7 +11,7 @@ const Login = props => {
   const login = e => {
     e.preventDefault();
     AxiosWithAuth()
-      .post("/api/auth/login", ---)
+      .post("/api/auth/login", credentials)
       .then(res => {
         console.log("LOGIN", res);
         localStorage.setItem("token", res.data.token);

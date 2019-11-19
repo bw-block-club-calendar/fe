@@ -13,6 +13,8 @@
 
 import React, { useEffect, useState } from "react";
 
+import Card from "./Card"
+
 import { FormControl } from '@material-ui/core';
 import { FormHelperText } from '@material-ui/core';
 import { FormLabel } from '@material-ui/core';
@@ -42,27 +44,6 @@ const Events =({values, errors, touched, status}) => {
     return (
 
         
-   
-    <div className = "event-form">
-    <br></br>
-    <form>
-    <field type="text" name="email" placeholder="What is your email?"/>
-    <field type="text" name="streetAddress" placeholder="What is your street address?"/>
-    <field type="text" name="city" placeholder="What city?"/>
-    <field type="text" name="zipcode" placeholder="What is your zipcode?"/>
-    <field type="text" name="businessName" placeholder="What is your business name?"/>
-    
-    </form>
-    {users.map( (user, index) => (
-        <ul key={index}>
-        <li>{user.email}</li>
-        <li>{user.streetAddress}</li>
-        <li>{user.zipcode}</li>
-        <li>{user.businessName}</li>
-
-        </ul>
-    ))}
-    </div>
         <div className={classes.container}>
         <div>
         
@@ -134,17 +115,9 @@ const Events =({values, errors, touched, status}) => {
   />
           </div>
           {users.map( (user, index) => (
-            <ul key={index}>
-            <li>{user.email}</li>
-            <li>{user.streetAddress}</li>
-            <li>{user.city}</li>
-            <li>{user.zipcode}</li>
-            <li>{user.businessName}</li>
-
-            </ul>
+           <Card />
         ))}
           </div>
->>>>>>> origin/RobertElias
 
     );
 
