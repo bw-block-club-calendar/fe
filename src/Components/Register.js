@@ -20,13 +20,13 @@ return(
     <br></br>
     <Form>
     <label className="checkbox-container">Organization
-    <Field type="checkbox" name="organization" checked={values.terms}/>
+    <Field type="checkbox" name="organization" checked={values.organization}/>
     {touched.organization && errors.organization && (<p className="errors">{errors.organization}</p>)}
     <span className="checkmark"/>
     </label>
     <br></br>
     <label className="checkbox-container">CommunityMember
-    <Field type="checkbox" name="CommunityMember" checked={values.terms}/>
+    <Field type="checkbox" name="CommunityMember" checked={values.CommunityMember}/>
     {touched.CommunityMember && errors.CommunityMember && (<p className="errors">{errors.CommunityMember}</p>)}
     <span className="checkmark"/>
     </label>
@@ -61,7 +61,8 @@ return(
     </Form>
     {users.map( (user, index) => (
         <ul key={index}>
-            
+            <li>{user.CommunityMember}</li>
+            <li>{user.organization}</li>
             <li>{user.email}</li>
             <li>{user.streetAddress}</li>
             <li>{user.city}</li>
@@ -101,7 +102,8 @@ const FormikUserForm = withFormik({
         zipcode: Yup.string().min(5, "Your zipcode is too short ").required("Please enter a zipcode!!"),
         businessName: Yup.string().required("Business name is required!!"),
         terms: Yup.boolean().test('terms', "Please agree to terms of service", value => value === true),
-        organization: Yup.boolean().test('terms', "Please Check One", value => value === true)        
+        organization: Yup.boolean().test(value => value === true) ,
+        CommunityMember: Yup.boolean().test(value => value === true)        
       }),
       handleSubmit(values, { setStatus, resetForm }) {
         // values is our object with all of our data
