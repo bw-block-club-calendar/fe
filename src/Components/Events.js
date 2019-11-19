@@ -13,6 +13,11 @@
 
 import React, { useEffect, useState } from "react";
 
+import { FormControl } from '@material-ui/core';
+import { FormHelperText } from '@material-ui/core';
+import { FormLabel } from '@material-ui/core';
+import { Input } from '@material-ui/core';
+import { InputLabel } from '@material-ui/core';
 import TextField from '@material-ui/core/TextField';
 import { makeStyles } from '@material-ui/core/styles';
 
@@ -20,6 +25,7 @@ const useStyles = makeStyles(theme => ({
     container: {
       display: 'flex',
       flexWrap: 'wrap',
+      justifyContent: 'center',
     },
     textField: {
       marginLeft: theme.spacing(1),
@@ -38,13 +44,15 @@ const Events =({values, errors, touched, status}) => {
         
         <div className={classes.container}>
         <div>
+        
+
+        
           <TextField
             id="standard-full-width"
-            label="Label"
+            label="Email"
             style={{ margin: 8 }}
             name="email"
             placeholder="What is your email?"
-            helperText="Full width!"
             fullWidth
             margin="normal"
             InputLabelProps={{
@@ -54,11 +62,10 @@ const Events =({values, errors, touched, status}) => {
 
           <TextField
           id="standard-full-width"
-          label="Label"
+          label="Address"
           style={{ margin: 8 }}
           name="streetAddress"
           placeholder="What is your street address?"
-          helperText="Full width!"
           fullWidth
           margin="normal"
           InputLabelProps={{
@@ -68,11 +75,10 @@ const Events =({values, errors, touched, status}) => {
 
         <TextField
         id="standard-full-width"
-        label="Label"
+        label="City"
         style={{ margin: 8 }}
         name="city"
         placeholder="What city?"
-        helperText="Full width!"
         fullWidth
         margin="normal"
         InputLabelProps={{
@@ -82,11 +88,10 @@ const Events =({values, errors, touched, status}) => {
 
       <TextField
       id="standard-full-width"
-      label="Label"
+      label="Zipcode"
       style={{ margin: 8 }}
       name="zipcode"
       placeholder="What is your zipcode?"
-      helperText="Full width!"
       fullWidth
       margin="normal"
       InputLabelProps={{
@@ -96,11 +101,10 @@ const Events =({values, errors, touched, status}) => {
 
     <TextField
     id="standard-full-width"
-    label="Label"
+    label="Business"
     style={{ margin: 8 }}
     name="businessName"
     placeholder="What is your business name?"
-    helperText="Full width!"
     fullWidth
     margin="normal"
     InputLabelProps={{

@@ -5,21 +5,22 @@ import Events from './Components/Events';
 import React from 'react';
 import logo from './logo.svg';
 
+//import Card from './Components/Card';
+
+
+
+
 function App() {
   return (
     <div className="App">
-
+    
     <Events/>
 
-    
-      <header className="App-header">
-      
+    <header className="App-header">
       <Button variant="contained" color="primary">
-      Hello World
-      </Button>
+      Hello Event Calendar
+    </Button>
       </header>
-
-      
     </div>
   );
 }
