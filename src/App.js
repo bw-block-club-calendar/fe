@@ -1,10 +1,15 @@
 import './App.css';
 
 import Button from '@material-ui/core/Button';
-import Events from './Components/Events';
 import React from 'react';
-import logo from './logo.svg';
+import Register from './Components/Register';
 
+//import Events from './Components/Events';
+
+
+
+
+//import Nav from './Components/Nav'
 //import Card from './Components/Card';
 
 
@@ -13,11 +18,10 @@ import logo from './logo.svg';
 function App() {
   return (
     <div className="App">
-    
-    <Events/>
-
+    {/*<Nav/>*/}
+    <Register/>
     <header className="App-header">
-      <Button variant="contained" color="primary">
+    <Button variant="contained" color="primary">
       Hello Event Calendar
     </Button>
       </header>

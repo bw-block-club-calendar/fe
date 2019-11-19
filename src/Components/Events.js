@@ -1,144 +1,103 @@
-/*
+import * as Yup from "yup";
 
-    * eventTitle - String
-    * eventAddress - Address
-    * geolocation - Coordinates
-    * eventDescription - String
-    * eventStart - DateTime
-    * eventEnd - DateTime
-    * externalLink (Facebook listing for example. *Optional) - URL
-    * 
-    *
- */
-
+import { Field, Form, withFormik } from "formik";
 import React, { useEffect, useState } from "react";
 
-import Box from '@material-ui/core/Box';
-import Button from '@material-ui/core/Button';
-import { FormControl } from '@material-ui/core';
-import { FormHelperText } from '@material-ui/core';
-import { FormLabel } from '@material-ui/core';
-import { Input } from '@material-ui/core';
-import { InputLabel } from '@material-ui/core';
-import TextField from '@material-ui/core/TextField';
-import { makeStyles } from '@material-ui/core/styles';
+import axios from "axios";
 
-const useStyles = makeStyles(theme => ({
-
-
-    container: {
-      border: '3px solid red',
-      display: 'flex',
-      flexWrap: 'wrap',
-      justifyContent: 'center',
-    },
-    textField: {
+const Register = ({ values, errors, touched, status })=>{
+    
       
-      marginLeft: theme.spacing(1),
-      marginRight: theme.spacing(1),
-      width: 150,
-    },
-    button: {
-        margin: theme.spacing(1),
-      },
-      input: {
-        display: 'none',
-      },
-  }));
+const [users, setUsers] = useState([]);
+  useEffect(() => {
+    status && setUsers(users => [...users, status]);
+  }, [status]);
 
-const Events =({values, errors, touched, status}) => {
-    const [users, setUsers] = useState([]);
-    const classes = useStyles();
-    useEffect (()=> {status && setUsers (users => [...users, status])}, [status]);
-
-    return (
  
-        <div className={classes.container}>
-        <div>
-        <h2>Please Register for an Event!!</h2>
-          <TextField
-            id="standard-full-width"
-            label="Email"
-            style={{ margin: 8 }}
-            name="email"
-            placeholder="What is your email?"
-            fullWidth
-            margin="normal"
-            InputLabelProps={{
-              shrink: true,
-            }}
-          />
 
-          <TextField
-          id="standard-full-width"
-          label="Address"
-          style={{ margin: 8 }}
-          name="streetAddress"
-          placeholder="What is your street address?"
-          fullWidth
-          margin="normal"
-          InputLabelProps={{
-            shrink: true,
-          }}
-        />
+return(
+    <div className="user-form">
+    
+    <br></br>
+    <Form>
+    <label className="checkbox-container">Terms Of Service
+    <Field type="checkbox" name="terms" checked={values.terms}/>
+    {touched.terms && errors.terms && (<p className="errors">{errors.terms}</p>)}
+    <span className="checkmark"/>
+    </label>
+    <Field type="text" name="email" placeholder="What is your Email?"/><br></br>
+    {touched.email && errors.email && (<p className="errors">{errors.email}</p>)}
+    <br></br>
+    <Field type="text" name="streetAddress" placeholder="What is your street address?"/><br></br>
+    {touched.streetAddress && errors.streetAddress && (<p className="errors">{errors.streetAddress}</p>)}
+    <br></br>
+    <Field type="text" name="city" placeholder="What is your city?"/><br></br>
+    {touched.city && errors.city && (<p className="errors">{errors.city}</p>)}
+    <br></br>
+    <Field type="text" name="zipcode" placeholder="What is your Zipcode?"/><br></br>
+    {touched.zipcode && errors.zipcode && (<p className="errors">{errors.zipcode}</p>)}
+    <br></br>
+    <Field type="text" name="businessName" placeholder="What is your Business Name?"/><br></br>
+    {touched.businessName && errors.businessName && (<p className="errors">{errors.businessName}</p>)}
+    <br></br>
+    <label className="checkbox-container">Terms Of Service
+    <Field type="checkbox" name="terms" checked={values.terms}/>
+    {touched.terms && errors.terms && (<p className="errors">{errors.terms}</p>)}
+    <span className="checkmark"/>
+    </label>
+    <button type="submit">Submit!</button>
 
-        <TextField
-        id="standard-full-width"
-        label="City"
-        style={{ margin: 8 }}
-        name="city"
-        placeholder="What city?"
-        fullWidth
-        margin="normal"
-        InputLabelProps={{
-          shrink: true,
-        }}
-      />
-
-        <TextField
-        id="standard-full-width"
-        label="Zipcode"
-        style={{ margin: 8 }}
-        name="zipcode"
-        placeholder="What is your zipcode?"
-        fullWidth
-        margin="normal"
-        InputLabelProps={{
-            shrink: true,
-        }}
-    />
-
-    <TextField
-    id="standard-full-width"
-    label="Business"
-    style={{ margin: 8 }}
-    name="businessName"
-    placeholder="What is your business name?"
-    fullWidth
-    margin="normal"
-    InputLabelProps={{
-      shrink: true,
-    }}
-  />
-  <Button variant="contained" color="primary" className={classes.button}>Register</Button>
-          </div>
-          {users.map( (user, index) => (
-            <ul key={index}>
+    </Form>
+    {users.map( (user, index) => (
+        <ul key={index}>
+            
             <li>{user.email}</li>
-            <li>{user.streetAddress}</li>
+            <li>{user.address}</li>
             <li>{user.city}</li>
             <li>{user.zipcode}</li>
             <li>{user.businessName}</li>
+            
+        </ul>
+    ))}
+    
 
-            </ul>
-        ))}
-
-        
-          </div>
-
-    );
-
+    </div>
+);
 };
 
 
-export default Events;
+
+const FormikUserForm = withFormik({
+    mapPropsToValues({name, email, password, terms}){
+        return{
+            name: name || "",
+            email: email || "",
+            password: password || "",
+            terms: terms || false,
+        };
+
+    },
+    validationSchema: Yup.object().shape({
+        name: Yup.string().min(3, "Your name is too short ").required("Please enter a name!!"),
+        email: Yup.string().email("Must be real Email"),
+        password: Yup.string().min(6, "Password must be 6 characters or longer").required("Password is required!!"),
+        terms: Yup.boolean().test('terms', "Please agree to terms of service", value => value === true)        
+      }),
+      handleSubmit(values, { setStatus, resetForm }) {
+        // values is our object with all of our data
+        console.log(values);
+        axios
+          .post("https://reqres.in/api/users/", values)
+          .then(res => {
+            setStatus(res.data);
+            resetForm();
+            console.log(res);
+          })
+          .catch(err => console.log(err.response));
+      }
+      
+})(Register);
+
+export default FormikUserForm;
+
+console.log("This is the HOC", FormikUserForm)
