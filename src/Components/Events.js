@@ -13,6 +13,8 @@
 
 import React, { useEffect, useState } from "react";
 
+import Box from '@material-ui/core/Box';
+import Button from '@material-ui/core/Button';
 import { FormControl } from '@material-ui/core';
 import { FormHelperText } from '@material-ui/core';
 import { FormLabel } from '@material-ui/core';
@@ -22,16 +24,26 @@ import TextField from '@material-ui/core/TextField';
 import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles(theme => ({
+
+
     container: {
+      border: '3px solid red',
       display: 'flex',
       flexWrap: 'wrap',
       justifyContent: 'center',
     },
     textField: {
+      
       marginLeft: theme.spacing(1),
       marginRight: theme.spacing(1),
-      width: 200,
+      width: 150,
     },
+    button: {
+        margin: theme.spacing(1),
+      },
+      input: {
+        display: 'none',
+      },
   }));
 
 const Events =({values, errors, touched, status}) => {
@@ -40,13 +52,10 @@ const Events =({values, errors, touched, status}) => {
     useEffect (()=> {status && setUsers (users => [...users, status])}, [status]);
 
     return (
-
-        
+ 
         <div className={classes.container}>
         <div>
-        
-
-        
+        <h2>Please Register for an Event!!</h2>
           <TextField
             id="standard-full-width"
             label="Email"
@@ -86,17 +95,17 @@ const Events =({values, errors, touched, status}) => {
         }}
       />
 
-      <TextField
-      id="standard-full-width"
-      label="Zipcode"
-      style={{ margin: 8 }}
-      name="zipcode"
-      placeholder="What is your zipcode?"
-      fullWidth
-      margin="normal"
-      InputLabelProps={{
-        shrink: true,
-      }}
+        <TextField
+        id="standard-full-width"
+        label="Zipcode"
+        style={{ margin: 8 }}
+        name="zipcode"
+        placeholder="What is your zipcode?"
+        fullWidth
+        margin="normal"
+        InputLabelProps={{
+            shrink: true,
+        }}
     />
 
     <TextField
@@ -111,6 +120,7 @@ const Events =({values, errors, touched, status}) => {
       shrink: true,
     }}
   />
+  <Button variant="contained" color="primary" className={classes.button}>Register</Button>
           </div>
           {users.map( (user, index) => (
             <ul key={index}>
@@ -122,6 +132,8 @@ const Events =({values, errors, touched, status}) => {
 
             </ul>
         ))}
+
+        
           </div>
 
     );
