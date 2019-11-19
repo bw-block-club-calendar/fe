@@ -26,8 +26,6 @@ const Events =({values, errors, touched, status}) => {
     <br></br>
     <form>
     <field type="text" name="email" placeholder="What is your email?"/>
-    <field type="text" name="username" placeholder="What is your username?"/>
-    <field type="text" name="password" placeholder="What is your password?"/>
     <field type="text" name="streetAddress" placeholder="What is your street address?"/>
     <field type="text" name="city" placeholder="What city?"/>
     <field type="text" name="zipcode" placeholder="What is your zipcode?"/>
@@ -37,8 +35,6 @@ const Events =({values, errors, touched, status}) => {
     {users.map( (user, index) => (
         <ul key={index}>
         <li>{user.email}</li>
-        <li>{user.username}</li>
-        <li>{user.password}</li>
         <li>{user.streetAddress}</li>
         <li>{user.zipcode}</li>
         <li>{user.businessName}</li>
