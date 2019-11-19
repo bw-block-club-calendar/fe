@@ -1,11 +1,11 @@
 
 import React from "react";
-import AxiosWithAuth from "../utils/AxiosWithAuth";
+import AxiosWithAuth from "../util/AxiosWithAuth";
 
 
 export default function Register(props) {
 
-    const [form, setForm] = React.useState({ username: "", password: "" });
+    const [form, setForm] = React.useState({ username: "", password: "", email: "" });
 
     const handleChanges = e => {
         setForm({...form, [e.target.name]: e.target.value}); 
@@ -51,6 +51,15 @@ export default function Register(props) {
                     onChange={handleChanges}
                     value={form.password}
                 />
+                              <label>Email</label>
+          <input
+            required
+            type="email"
+            placeholder="E-Mail"
+            name="email"
+            onChange={handleChanges}
+            value={form.email}
+          />
                 <button type="submit">SUBMIT</button>
                 
             </form>
