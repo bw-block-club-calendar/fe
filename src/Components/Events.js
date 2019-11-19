@@ -13,6 +13,8 @@
 
 import React, { useEffect, useState } from "react";
 
+import Card from "./Card"
+
 import { FormControl } from '@material-ui/core';
 import { FormHelperText } from '@material-ui/core';
 import { FormLabel } from '@material-ui/core';
@@ -113,14 +115,7 @@ const Events =({values, errors, touched, status}) => {
   />
           </div>
           {users.map( (user, index) => (
-            <ul key={index}>
-            <li>{user.email}</li>
-            <li>{user.streetAddress}</li>
-            <li>{user.city}</li>
-            <li>{user.zipcode}</li>
-            <li>{user.businessName}</li>
-
-            </ul>
+           <Card />
         ))}
           </div>
 
