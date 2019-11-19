@@ -5,12 +5,20 @@ import Events from './Components/Events';
 import React from 'react';
 import logo from './logo.svg';
 
+//import Card from './Components/Card';
+
+
+
+
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
+    
+    <Events/>
+
+    <header className="App-header">
       <Button variant="contained" color="primary">
-      Hello World
+      Hello Event Calendar
     </Button>
       </header>
     </div>
