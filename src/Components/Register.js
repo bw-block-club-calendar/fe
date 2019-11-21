@@ -17,13 +17,14 @@ export default function Register(props) {
             .post("/api/auth/register", form) 
             .then(res => {
                 console.log("LOGIN", res);
-                localStorage.setItem("token", res.data.payload);
+                localStorage.setItem("token", res.data.token);
+                localStorage.setItem("user_id", res.data.id);
                 props.history.push("/profile");
             })
             .catch(error => {
-                console.log("SIGNUPERROR", error.response.data.message)
-                alert(error.response.data.message)
-                setForm({ username: "", password: "" }); 
+                console.log("SIGNUPERROR", error)
+                alert(error)
+                setForm({ username: "", password: "", email: "" }); 
          });
     };
 

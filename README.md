@@ -51,4 +51,4 @@
 - [ ] Pages making HTTP requests do so in a logical manner that is cohesive with the app's state management system. Student showed great care and insight when handling token authentication. Student used a modular system for all requests (e.g. like a  useFetch custom hook).
 - [ ] Student showed the ability to manage state in a very coherent system at all levels of the app - global state management, component tree state management, and individual component management. The system is easy to understand and use. Student may have also architected it in such a way that it is reusable for a lot of the state management needs of the app.
 - [ ] Student's work demonstrates that all MVP features were built and the student went above and beyond the project.
-- [ ] Pair programmed with the Web UI and Back end Architect
+- [x] Pair programmed with the Web UI and Back end Architect

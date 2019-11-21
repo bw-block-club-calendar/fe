@@ -1,42 +1,42 @@
-import './App.css';
+import "./App.css";
 
-import Button from '@material-ui/core/Button';
+import Button from "@material-ui/core/Button";
 
-import React from 'react';
-import {Route} from "react-router-dom";
+import React, {useState} from "react";
+import { Route } from "react-router-dom";
 
 //import Card from './Components/Card';
 import Nav from "./Components/Nav";
 import Register from "./Components/Register";
 import Login from "./Components/Login";
 // import Events from './Components/Events';
-// import Profile from "./Components/Profile";
+import Profile from "./Components/Profile";
+import CreateProfile from "./Components/CreateProfile";
 // import AddEvent from "./Components/AddEvent";
-// import PrivateRoute from "./Components/AddEvent";
-
-
+import PrivateRoute from "./Components/AddEvent";
 
 function App() {
+const [loggedIn, setLoggedIn] = useState(false)
+
   return (
     <div className="App">
-    
-  
-    
+      <header className="App-header">
+        <EventContext.provider>
+<profileContext.provider>
+  <Route render={ (props) => <Nav {...props} /> } />
 
-    <header className="App-header">
-      <Nav />
+        <Route exact path="/login" render={ (props) => <Login {...props} loggedIn={loggedIn} setLoggedIn={setLoggedIn} /> } />
+        <Route exact path="/register" render={ (props) => <Register {...props} /> } />
 
-      <Route exact path="/login" component={Login} />
-      <Route exact path="/register" component={Register} />
-
-      <Button variant="contained" color="primary">
-      Hello Event Calendar
-      
-    </Button>
-      </header>  
-          {/* <Route exact path="/events" component={Events} />
-      <PrivateRoute exact path="/profile" component={Profile} />
-      <PrivateRoute exact path="/addevent" component={AddEvent} /> */}
+        <Button variant="contained" color="primary">
+          Hello Event Calendar
+        </Button>
+      </header>
+     
+      <Route exact path="/profile"  render={ (props) => <Profile {...props} /> } />
+      <Route exact path="/createprofile"  render={ (props) => <CreateProfile {...props} /> } />
+       {/* <Route exact path="/events" render={ () => <Events {...props} /> } /> */}
+      {/* <PrivateRoute exact path="/addevent" render={ () => <AddEvent {...props} /> } /> */}
     </div>
   );
 }
