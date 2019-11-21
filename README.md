@@ -11,7 +11,7 @@
 
 ## Day 2
 
-- [ ] 80% of Front end features & UI Components, built and consuming data from the backend (Functionality over form for now)
+- [x] 80% of Front end features & UI Components, built and consuming data from the backend (Functionality over form for now)
 
 ## Day 3
 
@@ -42,9 +42,9 @@
 ## React II 
 - [ ] React application is deployed and the static landing page is correctly incorporated with the app.
 - [ ] CRUD operations drive the application. Each participating student individually created pages that complete all CRUD operations. Token authentication is handled correctly.
-- [ ] Student has implemented a state management system that makes sense for the project. It is organized well and implemented correctly. State is not lost as user goes through the application. 
-- [ ] Student's work demonstrates that all MVP features were built
-- [ ] Team member was collaborative, able to work in a team environment
+- [x] Student has implemented a state management system that makes sense for the project. It is organized well and implemented correctly. State is not lost as user goes through the application. 
+- [x] Student's work demonstrates that all MVP features were built
+- [x] Team member was collaborative, able to work in a team environment
 
 ### Stretch
 - [ ] App is deployed, and continuous deployment is set up in a manner that is conducive to a team project environment. Project is organized well on GitHub. Extra considerations were made to help all team members understand how to contribute easily to the project, no matter their role.

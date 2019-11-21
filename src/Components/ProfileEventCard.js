@@ -1,7 +1,8 @@
 import react, {useContext} from "react";
 
 
-export default function EventCard(props) {
+export default function ProfileEventCard(props) {
+   
 
   const { EventData, setEventData } = useContext(EventContext);
       return (

@@ -10,7 +10,7 @@ export const ProfileData = () => {
     AxiosWithAuth()
     .get('/api/profile/')
     .then(res => {
-        console.log("addevent", res);
+        console.log("profileCall", res);
         setProfileData(res.data)
         
     })
@@ -26,10 +26,10 @@ export const eventData = () => {
     const { eventData, setEventData } = useContext(eventContext);
 
     AxiosWithAuth()
-    .get('/api/profile/')
+    .get('/api/event/')
     .then(res => {
         console.log("addevent", res);
-        setProfileData(res.data)
+        setEventData(res.data)
         
     })
       .catch(error => {

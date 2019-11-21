@@ -20,9 +20,9 @@ const [loggedIn, setLoggedIn] = useState(false)
 
   return (
     <div className="App">
-      <header className="App-header">
         <EventContext.provider>
-<profileContext.provider>
+<ProfileContext.provider>
+      <header className="App-header">
   <Route render={ (props) => <Nav {...props} /> } />
 
         <Route exact path="/login" render={ (props) => <Login {...props} loggedIn={loggedIn} setLoggedIn={setLoggedIn} /> } />
@@ -37,6 +37,8 @@ const [loggedIn, setLoggedIn] = useState(false)
       <Route exact path="/createprofile"  render={ (props) => <CreateProfile {...props} /> } />
        {/* <Route exact path="/events" render={ () => <Events {...props} /> } /> */}
       {/* <PrivateRoute exact path="/addevent" render={ () => <AddEvent {...props} /> } /> */}
+</ProfileContext.provider>
+      </EventContext.provider>
     </div>
   );
 }
