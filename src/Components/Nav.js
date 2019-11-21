@@ -2,10 +2,11 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import '../App.css';
 
-const Nav = () => {
+const Nav = (props) => {
     const handleLogout = () => {
         localStorage.removeItem("token")
-        window.location.reload();
+        localStorage.removeItem("user_id")
+        props.history.push("/");
         
     }
 
@@ -15,7 +16,8 @@ const Nav = () => {
         {localStorage.getItem("token") ? (
             <nav className="navbar">
                <button><Link to="/">Home</Link></button>
-
+               <button><Link to="/createprofile">Create Profile</Link></button>
+                <button><Link to="/profile">Profile</Link></button>
                <button><Link to="/events">Your Events</Link></button>
                <button><Link to="/addevent">Add An Event</Link></button>
                 <button onClick={handleLogout}> <Link to="/">Logout</Link></button>
@@ -25,6 +27,7 @@ const Nav = () => {
                 <button><Link to="/">Home</Link></button>
                 <button><Link to="/register">Register</Link></button>
                 <button><Link to="/login">Login</Link></button>
+                
                 <button> <Link to="/events">Events</Link></button>
             </nav>
         )}

@@ -8,7 +8,7 @@ import axios from 'axios';
         baseURL: 'https://blockclubcal.herokuapp.com/',
         headers: {
             'Content-Type': 'application/json',
-            'Authorization': `${token}`,
+            'authorization': `${token}`,
         },
     });
 };

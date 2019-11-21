@@ -15,13 +15,13 @@ const Login = props => {
       .then(res => {
         console.log("LOGIN", res);
         localStorage.setItem("token", res.data.token);
-        localStorage.setItem("user_id", res.data.userId);
+        localStorage.setItem("user_id", res.data.id);
         props.history.push("/profile");
-        window.location.reload();
+        
       })
       .catch(error => {
-        console.log("LOGINERROR", error.response.data.message);
-        alert(error.response.data.message);
+        console.log("LOGINERROR", error);
+        alert(error);
         setForm({ username: "", password: "" });
       });
   };

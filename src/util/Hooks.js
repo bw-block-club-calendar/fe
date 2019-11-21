@@ -1,4 +1,4 @@
-/*
-create custom hook to curry data to cards
+import {createContext} from 'react'
 
-*/
+export const profileContext = createContext();
+export const eventContext = createContext();

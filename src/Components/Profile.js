@@ -1,38 +1,35 @@
-/*
-const profiles =({}) => {
-    const [profiles, setProfiles] = useState([]);
+import React, { useEffect, useState } from "react";
+// import AxiosWithAuth from "../util/AxiosWithAuth";
 
 
-    return (
-    <Route exact path="/" component={Nav}/>
-    <Route exact path="/Events" component={Events} />
-    <Route exact path="/Profile" component={profile} />
 
-    );
-};
-
-export default profiles
-
-*/
+ const Profile = (props) => {
+  const { eventData, setEventData } = useContext(eventContext);
+  const userId = localStorage.getItem('user_id');
 
 
-//Private Route
+  return (
+<div>
+<div>
+      {eventData.map(prof => {
+        if (prof.user_id === userId) {
+          return (
+            <div>
+              <ProfileCard />
+            </div>
+          ):(
+            <div>
+              <h2>Go Socialize!</h2>
+              </div>
+          )
+        }
+      })}
 
-import { Redirect, Route } from "react-router-dom";
+    </div>
 
-import React from "react";
 
-export default function PrivateRoute({ component: Component, ...rest }) {
-    return (
-      <Route
-        {...rest}
-        render={props => {
-          if (localStorage.getItem("token")) {
-            return <Component {...props} />;
-          } else {
-            return <Redirect to="/Login" />;
-          }
-        }}
-      />
-    );
-   }
+    </div>
+  );
+}
+
+export default Profile;
