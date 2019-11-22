@@ -15,11 +15,11 @@
 
 ## Day 3
 
-- [ ] 100% of Front end features & UI Components, built and consuming data from the backend (Now is the time to focus on Form).
-- [ ] Front end is pulling in all data necessary from backend, users can interact with ALL CRUD operations on the Project data.
+- [x] 100% of Front end features & UI Components, built and consuming data from the backend (Now is the time to focus on Form).
+- [x] Front end is pulling in all data necessary from backend, users can interact with ALL CRUD operations on the Project data.
 
 ## Day 4
-- [ ] Document your projects within the Readme files in their Github repositories. Without having to talk to you specifically, any developer should be able to install, contribute to, and run your project based on the descriptions found in your readme
+- [x] Document your projects within the Readme files in their Github repositories. Without having to talk to you specifically, any developer should be able to install, contribute to, and run your project based on the descriptions found in your readme
 
 # MVP
 
@@ -40,8 +40,8 @@
 - [ ] Pair programmed with the Web UI and Back end Architect
 
 ## React II 
-- [ ] React application is deployed and the static landing page is correctly incorporated with the app.
-- [ ] CRUD operations drive the application. Each participating student individually created pages that complete all CRUD operations. Token authentication is handled correctly.
+- [x] React application is deployed and the static landing page is correctly incorporated with the app.
+- [x] CRUD operations drive the application. Each participating student individually created pages that complete all CRUD operations. Token authentication is handled correctly.
 - [x] Student has implemented a state management system that makes sense for the project. It is organized well and implemented correctly. State is not lost as user goes through the application. 
 - [x] Student's work demonstrates that all MVP features were built
 - [x] Team member was collaborative, able to work in a team environment
