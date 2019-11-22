@@ -48,8 +48,10 @@ function App(props) {
     .catch(error => {
       console.log("ERROR", error);
       alert(error);
-  }
+  })
+  
 }, []);
+
   return (
     <div className="App">
       <EventContext.Provider value={{ eventData, setEventData }}>

@@ -1,22 +1,3 @@
-/* {
-  "user_id": 9,
-  "organizer": "profile",
-  "title": "Councilperson Sheffield's Town Hall",
-  "description": "Join Council President Pro Tem Sheffield and the City Assessor for an in depth discussion on Neighborhood Enterprise Zones and what they mean to you!",
-  "start": "Tue Oct 22 2019 18:00:00 GMT-0400 (Eastern Daylight Time)",
-  "end": "Tue Oct 22 2019 20:00:00 GMT-0400 (Eastern Daylight Time)",
-  "ext_link": "https://detroitmi.gov/",
-  "image": "https://detroitmi.gov/sites/detroitmi.localhost/files/2018-11/Mary-Sheffield.jpg",
-  "location": {
-    "name": "Metropolitain United Methodist Church",
-    "coordinates": null,
-    "street_address": "8000 Woodward ave",
-    "street_address_2": null,
-    "city": "Detroit",
-    "zipcode": "48202",
-    "state": "MI"
-	}
-}*/
 
 import React, {useState} from "react";
 import AxiosWithAuth from "../util/AxiosWithAuth"
