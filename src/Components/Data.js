@@ -1,11 +1,12 @@
 import React, {useContext} from "react"
 import AxiosWithAuth from "../util/AxiosWithAuth";
+import {ProfileContext, EventContext} from "../util/Hooks"
 
 
 
 
 export const ProfileData = () => {
-    const { profileData, setprofileData } = useContext(profileContext);
+    const { profileData, setprofileData } = useContext(ProfileContext);
 
     AxiosWithAuth()
     .get('/api/profile/')
@@ -23,18 +24,8 @@ export const ProfileData = () => {
 
 
 export const eventData = () => {
-    const { eventData, setEventData } = useContext(eventContext);
+    const { eventData, setEventData } = useContext(EventContext);
 
-    AxiosWithAuth()
-    .get('/api/event/')
-    .then(res => {
-        console.log("addevent", res);
-        setEventData(res.data)
-        
-    })
-      .catch(error => {
-        console.log("ERROR", error);
-        alert(error);
-    }
+
 
 )}

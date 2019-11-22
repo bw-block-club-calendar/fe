@@ -2,26 +2,45 @@ import "./App.css";
 
 import Button from "@material-ui/core/Button";
 
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import { Route } from "react-router-dom";
 
 //import Card from './Components/Card';
 import Nav from "./Components/Nav";
 import Register from "./Components/Register";
 import Login from "./Components/Login";
-// import Events from './Components/Events';
+import Events from './Components/Events';
 import Profile from "./Components/Profile";
 import CreateProfile from "./Components/CreateProfile";
-// import AddEvent from "./Components/AddEvent";
-import PrivateRoute from "./Components/AddEvent";
+import AddEvent from "./Components/AddEvent";
+// import PrivateRoute from "./Components/AddEvent";
+import {EventContext, ProfileContext} from "./util/Hooks";
+import AxiosWithAuth from "./util/AxiosWithAuth";
+import EditEvent from "./Components/EditEvent";
 
-function App() {
+function App(props) {
 const [loggedIn, setLoggedIn] = useState(false)
+const [eventData, setEventData] = useState([]);
+const [profileData, setProfileData] = useState([]);
+
+useEffect(() => {
+AxiosWithAuth()
+.get('/api/event/')
+.then(res => {
+    console.log("addevent", res);
+    setEventData(res.data)
+    
+})
+  .catch(error => {
+    console.log("ERROR", error);
+    alert(error);
+})
+},[]);
 
   return (
     <div className="App">
-        <EventContext.provider>
-<ProfileContext.provider>
+        <EventContext.Provider value={{eventData, setEventData}}>
+<ProfileContext.Provider value={{profileData, setProfileData}}>
       <header className="App-header">
   <Route render={ (props) => <Nav {...props} /> } />
 
@@ -35,12 +54,13 @@ const [loggedIn, setLoggedIn] = useState(false)
      
       <Route exact path="/profile"  render={ (props) => <Profile {...props} /> } />
       <Route exact path="/createprofile"  render={ (props) => <CreateProfile {...props} /> } />
-       {/* <Route exact path="/events" render={ () => <Events {...props} /> } /> */}
-      {/* <PrivateRoute exact path="/addevent" render={ () => <AddEvent {...props} /> } /> */}
-</ProfileContext.provider>
-      </EventContext.provider>
+       <Route exact path="/events" render={ () => <Events {...props} /> } /> 
+       <Route exact path="/addevent" render={ () => <AddEvent {...props} /> } />
+       <Route exact path="/editevent" render={ () => <EditEvent {...props} /> } />
+</ProfileContext.Provider>
+      </EventContext.Provider>
     </div>
-  );
-}
+  )};
 
+      
 export default App;

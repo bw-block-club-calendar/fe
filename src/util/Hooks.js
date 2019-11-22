@@ -1,4 +1,7 @@
 import {createContext} from 'react'
 
-export const profileContext = createContext();
-export const eventContext = createContext();
+
+
+
+export const ProfileContext = createContext();
+export const EventContext = createContext();

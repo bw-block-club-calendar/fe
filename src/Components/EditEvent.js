@@ -1,33 +1,11 @@
-/* {
-  "user_id": 9,
-  "organizer": "profile",
-  "title": "Councilperson Sheffield's Town Hall",
-  "description": "Join Council President Pro Tem Sheffield and the City Assessor for an in depth discussion on Neighborhood Enterprise Zones and what they mean to you!",
-  "start": "Tue Oct 22 2019 18:00:00 GMT-0400 (Eastern Daylight Time)",
-  "end": "Tue Oct 22 2019 20:00:00 GMT-0400 (Eastern Daylight Time)",
-  "ext_link": "https://detroitmi.gov/",
-  "image": "https://detroitmi.gov/sites/detroitmi.localhost/files/2018-11/Mary-Sheffield.jpg",
-  "location": {
-    "name": "Metropolitain United Methodist Church",
-    "coordinates": null,
-    "street_address": "8000 Woodward ave",
-    "street_address_2": null,
-    "city": "Detroit",
-    "zipcode": "48202",
-    "state": "MI"
-	}
-}*/
-
-import React, {useState} from "react";
+import React, {useState} from "react"
 import AxiosWithAuth from "../util/AxiosWithAuth"
 
-
-
-const AddEvent = (props) => {
+const EditEvent = (props) => {
 
     const userId = parseInt(localStorage.getItem('user_id'));
 
-    const [form, setForm] = useState({
+    const [form, setForm] = useState({ ...form, 
   
         title: "",
       description: "",
@@ -51,9 +29,9 @@ const AddEvent = (props) => {
        console.log(form, "handle")
     };
   
-    const addEvent = e => {
+    const editEvent = e => {
       e.preventDefault();
-      console.log(form, "addeventform")
+      console.log(form, "editeventform")
       let apiForm = {
         user_id: userId,
         title: form.title,
@@ -73,11 +51,11 @@ const AddEvent = (props) => {
         
   
       }
-      console.log(apiForm, "addeventform")
+      console.log(apiForm, "editeventform")
       AxiosWithAuth()
-        .post("/api/event", apiForm)
+        .put("/api/event", apiForm)
         .then(res => {
-          console.log("addevent", res);
+          console.log("editevent", res);
           props.history.push("/events");
           window.location.reload();
         })
@@ -100,7 +78,7 @@ const AddEvent = (props) => {
 
 return(
     <div>
-     <form onSubmit={addEvent}>
+     <form onSubmit={editEvent}>
 
          <h2>Event</h2>
 
@@ -239,7 +217,7 @@ return(
   value={form.zipcode}
 />
 
-<button type="submit">Add an Event</button>
+<button type="submit">Edit an Event</button>
 </form>
          
         </div>
@@ -247,4 +225,4 @@ return(
 
 }
 
-export default AddEvent
+export default EditEvent

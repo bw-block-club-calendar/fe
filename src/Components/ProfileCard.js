@@ -1,9 +1,9 @@
-import react, {useContext} from "react";
-
+import React, {useContext} from "react";
+import {ProfileContext} from "../util/Hooks"
 
 export default function ProfileCard(props) {
 
-  const { profileData, setprofileData } = useContext(profileContext);
+  const { profileData, setProfileData } = useContext(ProfileContext);
       return (
 
         <div>
